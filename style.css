@@ -1,0 +1,105 @@
+html,
+body {
+  width: 75%;
+  margin: auto;
+}
+
+body {
+  background-color: rgba(140, 140, 140, 0.73);
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.child {
+  display: inline-block;
+  margin: 10px;
+  padding-bottom: 5px;
+  border: solid black 2px;
+  width: 45%;
+  background-color: rgb(210, 130, 213);
+  border-radius: 25px;
+}
+
+#generateBtn {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#clearBtn,
+#generateBtn {
+  width: 50%;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: solid black 3px;
+  background-color: rgb(228, 194, 217);
+  box-shadow: black 5px 5px;
+}
+
+button:hover,
+#clearBtn:hover,
+#generateBtn:hover,
+button:active {
+  background-color: rgb(3, 10, 148);
+  color: white;
+}
+
+#color-selector-container > div {
+  margin: 10px;
+  display: flex;
+}
+
+#draw,
+#erase {
+  width: auto;
+  margin: 0px 50px 15px 50px;
+  font-size: 20px;
+}
+
+.final-controls {
+  margin-top: 25px;
+}
+
+.final-controls > div {
+  display: inline-block;
+  padding: 5px;
+  vertical-align: middle;
+  margin: 0px 0px 25px 0px;
+  width: 30%;
+}
+
+#generate-grid {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.hidden {
+  display: none;
+}
+
+.pixel-board {
+  margin-top: 25px;
+  display: inline-block;
+}
+
+.sliders__color-selector {
+  background-color: rgb(210, 130, 213);
+  border-radius: 25px;
+  margin: 15px;
+  border: solid black 2px;
+}
+
+table,
+tr,
+td {
+  border-color: black;
+  border: solid 1px;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+tr,
+td {
+  width: 10px;
+  height: 10px;
+}

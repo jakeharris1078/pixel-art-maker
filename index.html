@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="style.css" rel="stylesheet" />
+  <script defer src="script.js"></script>
+  <script src="color-picker.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Art</title>
+  </head>
+  <body>
+    <h1>Pixel Art Maker</h1>
+    <!-- <button id="debug">⚝⚝⚝⚝⚝ DEV ⚝⚝⚝⚝⚝</button> -->
+    <div class="sliders">
+      <div class="sliders__height-slider child" id="height-slider-container">
+        <p id="height-display">Grid Height: 10</p>
+        <input
+          type="range"
+          min="2"
+          max="25"
+          value="10"
+          class="slider"
+          id="height-slider"
+          oninput="getHeight(this.value)"
+        />
+      </div>
+      <div class="sliders__width-slider child" id="width-slider-container">
+        <p id="width-display">Grid Width: 10</p>
+        <input
+          type="range"
+          min="2"
+          max="25"
+          value="10"
+          class="slider"
+          id="width-slider"
+          oninput="getWidth(this.value)"
+        />
+      </div>
+      <button id="generateBtn">Generate Grid</button>
+      <div class="art-controls">
+        <div class="sliders__color-selector" id="color-selector-container">
+          <div>
+            <p>Pencil Color</p>
+            <input
+              id="color-slider-pencil"
+              class="child"
+              onchange="getColorPencil()"
+              data-jscolor="{ value: '#000000FF' }"
+            />
+            <p>Grid Color</p>
+            <input
+              id="color-slider-grid"
+              class="child"
+              onchange="getColorGrid()"
+              data-jscolor="{ value: '#000000FF' }"
+            />
+          </div>
+        </div>
+        <button class="child" id="draw">✎</button>
+        <button class="child" id="erase">⌫</button>
+      </div>
+      <div class="pixel-board" id="pixel-board">
+        <table class="pixel-table" id="pixel-table">
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+          <tr class="pixel-row">
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+            <td class="pixel-item"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="final-controls">
+        <!-- <div class="final-controls__save">
+          <button id="saveBtn">Save</button>
+        </div> -->
+        <div class="final-controls__clear">
+          <button id="clearBtn">Clear</button>
+        </div>
+        <!-- <div class="final-controls__export">
+          <button id="exportBtn">Export</button>
+        </div> -->
+      </div>
+    </div>
+  </body>
+</html>
